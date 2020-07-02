@@ -21,4 +21,10 @@ public class AdherentDao {
 	public List<Adherent> findAll() {
 		return em.createQuery("SELECT a FROM Adherent a").getResultList();
 	}
+	
+	public void delete(Long id) {
+		 em.createQuery("delete FROM Adherent a where a.id=:id")
+		            .setParameter("id", id)
+		            .executeUpdate();
+	}
 }

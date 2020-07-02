@@ -5,14 +5,14 @@ package com.gbiblio.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.gbiblio.dao.AdherentDao;
 import com.gbiblio.model.Adherent;
 
-@Component
-public class AdherentService {
+@Service
+public class AdherentServiceImp implements IAdherentService {
 
 	@Autowired
 	private AdherentDao adherentDao;
@@ -26,6 +26,11 @@ public class AdherentService {
 	public List<Adherent> listAll() {
 		return adherentDao.findAll();
 
+	}
+	
+	@Transactional
+	public void delete(Long id) {
+		adherentDao.delete(id);
 	}
 
 }

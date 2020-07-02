@@ -11,6 +11,14 @@ public class Livre extends Document{
 	public Livre() {
 		super();
 	}
+	public Livre(Long id) {
+		super(id);
+	}
+	public Livre(Long id, String titre, boolean disponible) {
+		super(id, titre);
+		this.disponible = disponible;
+	}
+
 	public Livre(String titre, boolean disponible) {
 		super(titre);
 		this.disponible = disponible;

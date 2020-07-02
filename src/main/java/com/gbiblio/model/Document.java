@@ -25,6 +25,18 @@ public class Document {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	public Document(Long id) {
+		super();
+		this.id = id;
+	}
+
+	public Document(Long id, String titre) {
+	super();
+	this.id = id;
+	this.titre = titre;
+}
+
 	public Document(String titre) {
 		super();
 		this.titre = titre;

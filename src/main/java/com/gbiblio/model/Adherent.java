@@ -24,6 +24,19 @@ public class Adherent {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	public Adherent(Long id) {
+		super();
+		this.id = id;
+	}
+
+	public Adherent(Long id, String nom, String prenom) {
+		super();
+		this.id = id;
+		this.nom = nom;
+		this.prenom = prenom;
+	}
+
 	public Adherent(String nom, String prenom) {
 		super();
 		this.nom = nom;
