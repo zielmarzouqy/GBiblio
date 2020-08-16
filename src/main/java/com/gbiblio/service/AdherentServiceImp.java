@@ -8,18 +8,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.gbiblio.dao.AdherentDao;
+import com.gbiblio.dao.IAdherentDao;
 import com.gbiblio.model.Adherent;
 
 @Service
 public class AdherentServiceImp implements IAdherentService {
 
 	@Autowired
-	private AdherentDao adherentDao;
+	private IAdherentDao adherentDao;
 
 	@Transactional
-	public void add(Adherent adherent) {
+	public Adherent add(Adherent adherent){
+		if (adherent == null)
+			throw new NullPointerException("[AdherentServiceImp][add] adherent can not be null");
 		adherentDao.persist(adherent);
+		return adherent;
 	}
 
 	@Transactional(readOnly = true)
@@ -29,8 +32,8 @@ public class AdherentServiceImp implements IAdherentService {
 	}
 	
 	@Transactional
-	public void delete(Long id) {
-		adherentDao.delete(id);
+	public int delete(Long id) {
+		return adherentDao.delete(id);
 	}
 
 }

@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.gbiblio.dao.DocumentDao;
+import com.gbiblio.dao.IDocumentDao;
 import com.gbiblio.model.Document;
 
 
@@ -16,7 +16,7 @@ import com.gbiblio.model.Document;
 public class DocumentServiceImp implements IDocumentService{
 
 	@Autowired
-	private DocumentDao documentDao;
+	private IDocumentDao documentDao;
 
 	@Transactional
 	public void add(Document document) {

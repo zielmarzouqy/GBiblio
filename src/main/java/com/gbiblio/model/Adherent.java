@@ -4,6 +4,7 @@ import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -17,7 +18,7 @@ public class Adherent {
 	private String nom;
 	private String prenom;
 	
-	@OneToMany(mappedBy = "adherent", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "adherent", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval=true)
 	private Set<Emprunt> setEmprunt;
 	
 	public Adherent() {

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+
+<title>BORAJI.COM</title>
+</head>
+<body>
+	<h1>Spring MVC + Thymeleaf Hello World example</h1>
+	<p th:text="${message}"></p>
+	<img th:src="@{/resources/images/spring-mvc-logo.png}" />
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>NOM</th>
+				<th>PRENOM</th>
+			</tr>
+		</thead>
+		<tbody>
+			<th:block th:each="adherent : ${listAdherent}">
+				<tr>
+					<td th:text="${adherent.id}">default id</td>
+					<td th:text="${adherent.nom}">default last name</td>
+					<td th:text="${adherent.prenom}">default first name</td>
+				</tr>
+			</th:block>
+		</tbody>
+	</table>
+</body>
+</html>

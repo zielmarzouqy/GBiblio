@@ -3,6 +3,7 @@ package com.gbiblio.model;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -18,7 +19,7 @@ public class Emprunt {
 	private Date dateEmprunt;
 	private Date dateRetour;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="id_adherent")
 	private Adherent adherent;
 	
@@ -34,6 +35,13 @@ public class Emprunt {
 		this.dateEmprunt = dateEmprunt;
 		this.dateRetour = dateRetour;
 		this.adherent = adherent;
+		this.document = document;
+	}
+	
+	public Emprunt(Date dateEmprunt, Date dateRetour, Document document) {
+		super();
+		this.dateEmprunt = dateEmprunt;
+		this.dateRetour = dateRetour;
 		this.document = document;
 	}
 
