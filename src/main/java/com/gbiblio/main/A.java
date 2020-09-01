@@ -1,5 +1,5 @@
 package com.gbiblio.main;
-
+//////
 public class A {
 // test 3
 	//aa a conf 1
