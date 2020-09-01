@@ -1,5 +1,5 @@
 package com.gbiblio.main;
-// test 1
+// test 2
 public class Test1 {
 	
 	public void get(float a) {
