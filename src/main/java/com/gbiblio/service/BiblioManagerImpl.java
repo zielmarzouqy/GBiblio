@@ -1,5 +1,7 @@
 package com.gbiblio.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -41,6 +43,11 @@ public class BiblioManagerImpl implements IBiblioManager {
 		if (emprunt == null)
 			throw new NullPointerException("[BiblioManagerImpl][emprunter] emprunt can not be null");	
 		return empruntService.add(emprunt);
+	}
+
+	@Override
+	public List<Emprunt> getAllEmprunts() {
+		return empruntService.listAll();
 	}
 	
 

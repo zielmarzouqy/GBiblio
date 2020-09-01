@@ -2,8 +2,10 @@ package com.gbiblio.model;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity
+//@PrimaryKeyJoinColumn(name = "livre_id" , referencedColumnName = "id")
 @DiscriminatorValue("Livre")
 public class Livre extends Document{
 	private boolean disponible;

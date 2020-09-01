@@ -2,7 +2,6 @@ package com.gbiblio.service;
 
 import java.util.List;
 
-
 import com.gbiblio.model.Adherent;
 
 public interface IAdherentService {

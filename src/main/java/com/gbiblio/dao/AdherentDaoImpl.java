@@ -8,7 +8,6 @@ import javax.persistence.PersistenceException;
 
 import org.springframework.stereotype.Repository;
 
-import com.gbiblio.main.BeanTest;
 import com.gbiblio.model.Adherent;
 
 @Repository
@@ -21,9 +20,8 @@ public class AdherentDaoImpl implements IAdherentDao{
 		if (adherent == null)
 			throw new NullPointerException("[AdherentDaoImpl][persist] adherent can not be null");
 		try {
-			em.persist(new BeanTest());
+			em.persist(adherent);
 		} catch (PersistenceException e) {
-			System.out.println(e);
 			throw new PersistenceException(e);
 		}
 

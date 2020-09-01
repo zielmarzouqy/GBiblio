@@ -14,16 +14,16 @@ import javax.persistence.OneToOne;
 @Entity
 public class Emprunt {
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	private Date dateEmprunt;
 	private Date dateRetour;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name="id_adherent")
 	private Adherent adherent;
 	
-	@OneToOne
+	@OneToOne(optional = false)
 	@JoinColumn(name="id_document")
 	private Document document;
 

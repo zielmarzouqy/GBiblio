@@ -18,29 +18,34 @@ public class EmpruntServiceImp implements IEmpruntService {
 
 	@Autowired
 	private IEmpruntDao empruntDao;
-	
+
 	@Autowired
 	private IDocumentDao documentDao;
 
 	@Transactional
 	public Emprunt add(Emprunt emprunt) throws GBiblioException {
-		if (emprunt == null) 
+		if (emprunt == null)
 			throw new IllegalArgumentException("[EmpruntServiceImp][add] args null");
-		
-		try {
-				Livre livre = (Livre) documentDao.findOne(emprunt.getDocument().getId());
-				
-				if (livre == null)
-					throw new GBiblioException("[EmpruntServiceImp][add] Le document recherche n'existe pas id=" + emprunt.getDocument().getId());
 
-				if (!livre.isDisponible())			
-					throw new GBiblioException("[EmpruntServiceImp][add] Le document n'est pa disponible id=" + emprunt.getDocument().getId());
-				
+		try {
+			if (emprunt.getDocument() instanceof Document) {
+				Livre livre = (Livre) documentDao.findOne(emprunt.getDocument().getId());
+
+				if (livre == null)
+					throw new GBiblioException("[EmpruntServiceImp][add] Le document recherche n'existe pas id="
+							+ emprunt.getDocument().getId());
+
+				if (!livre.isDisponible())
+					throw new GBiblioException("[EmpruntServiceImp][add] Le document n'est pa disponible id="
+							+ emprunt.getDocument().getId());
+
 				empruntDao.persist(emprunt);
 				livre.setDisponible(false);
-				Document l = documentDao.update(livre);
-				
+				documentDao.update(livre);
+
 				return emprunt;
+			} else return null;
+
 		} catch (Exception e) {
 			throw new GBiblioException("[EmpruntServiceImp][add] Erreur lors l'emprunt", e);
 		}

@@ -30,8 +30,8 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
-import com.gbiblio.config.CoreConfig;
-import com.gbiblio.config.MvcWebConfig;
+//import com.gbiblio.config.CoreConfig;
+//import com.gbiblio.config.MvcWebConfig;
 import com.gbiblio.controller.MyController;
 import com.gbiblio.dao.IDocumentDao;
 import com.gbiblio.dao.IEmpruntDao;
@@ -46,7 +46,7 @@ import com.gbiblio.service.IAdherentService;
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration // pas necessaire si on utilise standaloneSetup
 //@ContextConfiguration(locations = {"classpath:/spring/applicationContext.xml", "classpath:/spring/appconfig-mvc.xml"})
-@ContextConfiguration(classes = { MvcWebConfig.class, CoreConfig.class })
+//@ContextConfiguration(classes = { MvcWebConfig.class, CoreConfig.class })
 public class ControllerTest {
 
 	private MockMvc mockMvc;
