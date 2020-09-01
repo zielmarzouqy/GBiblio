@@ -6,3 +6,4 @@ public class Test1 {
 		System.out.println(a);
 	}
 }
+// 2
