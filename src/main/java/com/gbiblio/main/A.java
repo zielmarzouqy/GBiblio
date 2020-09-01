@@ -3,7 +3,7 @@ package com.gbiblio.main;
 public class A {
 
 	//aa a conf 1
-	// bbbb
+	// bbbb conf 2
 	public void get(float a) {
 		System.out.println(a);
 	}
