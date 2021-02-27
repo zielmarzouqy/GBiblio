@@ -1,5 +1,7 @@
 package com.gbiblio.model;
 
+import java.util.Date;
+
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.PrimaryKeyJoinColumn;
@@ -25,6 +27,7 @@ public class Livre extends Document{
 		super(titre);
 		this.disponible = disponible;
 	}
+	
 	
 	public boolean isDisponible() {
 		return disponible;

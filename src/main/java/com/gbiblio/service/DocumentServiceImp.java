@@ -2,6 +2,7 @@ package com.gbiblio.service;
 
 
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.gbiblio.dao.IDocumentDao;
 import com.gbiblio.model.Document;
+import com.gbiblio.model.Livre;
 
 
 @Service
@@ -44,6 +46,11 @@ public class DocumentServiceImp implements IDocumentService{
 	@Transactional
 	public void delete(Long id) {
 		 documentDao.delete(id);
+	}
+	
+	@Transactional
+	public List<Livre> findByDate(Date d1, Date d2) {
+		return  documentDao.findByDate(d1, d2);
 	}
 
 }

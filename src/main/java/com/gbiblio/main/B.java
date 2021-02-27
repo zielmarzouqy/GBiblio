@@ -1,12 +1,11 @@
-//package com.gbiblio.main;
-//////
-//public class B extends A {
-//	@Override
+package com.gbiblio.main;
+////
+public class B extends A {
 //	public void get(int a) {
 //		System.out.println(a);
 //	}
-//
-//}
+
+}
 
 // conf local B
 

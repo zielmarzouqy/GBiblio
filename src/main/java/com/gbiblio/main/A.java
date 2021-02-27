@@ -1,11 +1,11 @@
 package com.gbiblio.main;
-//////
+////// 
 public class A {
 // test 3
 	//aa a conf 1
 	// bbbb conf 2
 	// conf local A
-	public void get(float a) {
+	static void get(int a) {
 		System.out.println(a);
 	}
 }

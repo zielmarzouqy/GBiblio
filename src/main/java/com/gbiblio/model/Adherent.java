@@ -8,16 +8,36 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-
-import org.hibernate.annotations.GenericGenerator;
+import javax.persistence.SequenceGenerator;
 
 @Entity
 public class Adherent {
 
-	@Id
+//	@Id
 //	@GeneratedValue (strategy=GenerationType.AUTO, generator = "native")
 //    @GenericGenerator(name = "native", strategy = "native")
-	@GeneratedValue (strategy=GenerationType.IDENTITY)
+//	@GeneratedValue (strategy=GenerationType.AUTO)
+	
+
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="course_seq")
+	@SequenceGenerator(
+		name="course_seq",
+		sequenceName="course_sequence",
+		allocationSize=20
+	)
+//   @Id
+//   @GeneratedValue(generator = "sequence-generator")
+//   @GenericGenerator(
+//	    name = "sequence-generator",
+//	    strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
+//	    parameters = {
+//		      @Parameter(name = "sequence_name", value = "user_sequence"),
+//		      @Parameter(name = "initial_value", value = "4"),
+//		      @Parameter(name = "increment_size", value = "1")
+//	      }
+//    )
 	private Long id;
 	private String nom;
 	private String prenom;

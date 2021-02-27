@@ -9,8 +9,8 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 
 @Entity
-@Inheritance(strategy=InheritanceType.JOINED)
-@DiscriminatorColumn(name="document_type")
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+//@DiscriminatorColumn(name="document_type")
 public class Document {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -22,20 +22,19 @@ public class Document {
 //	private Emprunt emprunt;
 	
 	public Document() {
-		super();
 		// TODO Auto-generated constructor stub
 	}
 	
 	public Document(Long id) {
-		super();
+		this();
 		this.id = id;
 	}
 
 	public Document(Long id, String titre) {
-	super();
+	this(id);
 	this.id = id;
 	this.titre = titre;
-}
+	}
 
 	public Document(String titre) {
 		super();
@@ -59,8 +58,5 @@ public class Document {
 //	public void setEmprunt(Emprunt emprunt) {
 //		this.emprunt = emprunt;
 //	}
-	
-	
-	
-	
+
 }

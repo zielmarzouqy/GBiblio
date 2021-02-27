@@ -13,13 +13,13 @@
 		http://www.springframework.org/schema/tx/spring-tx.xsd
 		">
 		
-	<context:property-placeholder location="classpath:db.properties"/>
+<!-- 	<context:property-placeholder location="classpath:db.properties"/> -->
 	
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<property name="driverClassName" value="${gbiblio.db.driverClassName}" />
-		<property name="url" value="${gbiblio.db.url}" />
-		<property name="username" value="${gbiblio.db.username}" />
-		<property name="password" value="${gbiblio.db.password}" />
+		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost/gbiblio?serverTimezone=UTC" />
+		<property name="username" value="root" />
+		<property name="password" value="rootpassword" />
 	</bean>
 	
 	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"

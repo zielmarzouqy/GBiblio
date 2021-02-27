@@ -1,5 +1,6 @@
 package com.gbiblio.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -8,6 +9,7 @@ import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 
 import com.gbiblio.model.Document;
+import com.gbiblio.model.Livre;
 
 @Repository
 public class DocumentDaoImpl implements IDocumentDao {
@@ -34,5 +36,13 @@ public class DocumentDaoImpl implements IDocumentDao {
 		 em.createQuery("delete FROM Document d where d.id=:id")
 		            .setParameter("id", id)
 		            .executeUpdate();
+	}
+
+	@Override
+	public List<Livre> findByDate(Date d1, Date d2) {
+		return em.createQuery("select l FROM Livre l where l.publishingDate>=:publishingDate and l.publishingDate<=:publishingDate")
+        .setParameter("publishingDate", d1)
+        .setParameter("publishingDate", d2)
+        .getResultList();
 	}
 }
